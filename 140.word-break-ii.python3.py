@@ -71,7 +71,7 @@ class Solution:
         """
         words_dict = defaultdict(list)
 
-        def dfs(s):
+        def search_string(s):
             if not s:
                 return [None]
             if s in words_dict:
@@ -80,7 +80,7 @@ class Solution:
             for word in wordDict:
                 n = len(word)
                 if s[:n] == word:
-                    for r in dfs(s[n:]):
+                    for r in search_string(s[n:]):
                         if r:
                             res.append(word + " " + r)
                         else:
@@ -88,4 +88,4 @@ class Solution:
             words_dict[s] = res
             return res
 
-        return dfs(s)
+        return search_string(s)
